@@ -1,0 +1,26 @@
+[
+  {
+    "num":[0,1,2],
+    "url":"../public/Result_1.png"
+  },
+  {
+    "num":[3,4,5],
+    "url":"../public/Result_2.png"
+  },
+  {
+    "num":[6,7],
+    "url":"../public/Result_3.png"
+  },
+  {
+    "num":[8,9,10],
+    "url":"../public/Result_4.png"
+  },
+  {
+    "num":[11,12],
+    "url":"../public/Result_5.png"
+  },
+  {
+    "num":[13,14],
+    "url":"../public/Result_6.png"
+  }
+]

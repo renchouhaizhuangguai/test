@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>题目</title>
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/rem.css ">
+    <link rel="stylesheet" href="../css/index.css ">
+</head>
+<body>
+<div id="activity" style="background-image: url(../image/activity_bkg_two.png);">
+    <div class="subject">
+        <div class="subject_name">
+            <img src="../number/s1.png" alt="">
+        </div>
+        <div id="sub">
+            <div class="sub_li">
+                <div class="li">
+                    <span class="letter"><img src="../number/A.png" alt=""></span>
+                    <strong class="content"></strong>
+                    <img class="heart" src="../image/activity_heart.png" alt="">
+                </div>
+                <div class="ash"></div>
+            </div>
+            <div class="sub_li">
+                <div class="li">
+                    <span class="letter"><img src="../number/B.png" alt=""></span>
+                    <strong class="content"></strong>
+                    <img class="heart" src="../image/activity_heart.png" alt="">
+                </div>
+                <div class="ash"></div>
+            </div>
+            <div class="sub_li">
+                <div class="li">
+                    <span class="letter"><img src="../number/C.png" alt=""></span>
+                    <strong class="content"></strong>
+                    <img class="heart" src="../image/activity_heart.png" alt="">
+                </div>
+                <div class="ash"></div>
+            </div>
+        </div>
+        <div class="progress_bar">
+            <div class="progress_box"></div>
+        </div>
+    </div>
+    <a class="jump_one subject_btn" href="javascript:void(0);">
+        <img src="../image/avtivity_btn2.png" alt="">
+    </a>
+</div>
+</body>
+</html>
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/toast.js"></script>
+<script src="../js/json.js"></script>
+<script>
+    $(function () {
+        var name=$('.subject_name img');
+        var sub=$('#sub').find('.sub_li');
+        var jump_one=$('.jump_one');
+        var progress_box=$('.progress_bar .progress_box');
+        var id=0;
+        var Total_score=[];
+        init(id);
+        sub.bind('click',function (event) {
+            sub.removeClass('active');
+            $(this).addClass('active');
+            Total_score.push($(this).find('.content').attr('Fraction'));
+            event.stopPropagation();
+        });
+        jump_one.on('click',function () {
+            if(sub.hasClass('active')){
+                var num=0;
+                for(var i=0;i<Total_score.length;i++){
+                    num+=parseInt(Total_score[i]);
+                }
+                id++;
+                progress_box.css('width',id*11.1+'%');
+                if(id==9){
+                    jump_one.attr('href','One_step.html?num='+num);
+                }
+                init(id);
+            }else{
+                showMessage('请先选择信息！',1500,true);
+                return;
+            }
+        });
+        function init(index){
+            sub.removeClass('active');
+            name.attr('src',Fraction[index].url);
+            var arr = [0,1,2]
+            var res = [];
+            for (var i = 0, len = arr.length; i < len; i++) {
+                var j = Math.floor(Math.random() * arr.length);
+                res[i] = arr[j];
+                arr.splice(j, 1);
+            }
+            for (var j=0;j<res.length;j++){
+                sub.eq(j).find('.content').text(Fraction[index].content[res[j]].text);
+                sub.eq(j).find('.content').attr('Fraction',Fraction[index].content[res[j]].num)
+            }
+        }
+    })
+
+</script>

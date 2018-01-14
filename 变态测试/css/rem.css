@@ -1,0 +1,297 @@
+@charset "UTF-8";
+@media screen and (max-width: 2048px) {
+    html {
+        font-size: 273.06667px; } }
+
+@media screen and (max-width: 1920px) {
+    html {
+        font-size: 256px; } }
+
+@media screen and (max-width: 1440px) {
+    html {
+        font-size: 192px; } }
+
+@media screen and (max-width: 1600px) {
+    html {
+        font-size: 213.33333px; } }
+
+@media screen and (max-width: 1242px) {
+    html {
+        font-size: 165.6px; } }
+
+@media screen and (max-width: 1140px) {
+    html {
+        font-size: 152px; } }
+
+@media screen and (max-width: 1280px) {
+    html {
+        font-size: 170.66667px; } }
+
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 136.53333px; } }
+
+@media screen and (max-width: 1080px) {
+    html {
+        font-size: 144px; } }
+
+@media screen and (max-width: 960px) {
+    html {
+        font-size: 128px; } }
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 106.66667px; } }
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 102.4px; } }
+
+@media screen and (max-width: 736px) {
+    html {
+        font-size: 98.13333px; } }
+
+@media screen and (max-width: 732px) {
+    html {
+        font-size: 97.6px; } }
+
+@media screen and (max-width: 720px) {
+    html {
+        font-size: 96px; } }
+
+@media screen and (max-width: 667px) {
+    html {
+        font-size: 88.93333px; } }
+
+@media screen and (max-width: 644px) {
+    html {
+        font-size: 85.8666667px; } }
+
+@media screen and (max-width: 640px) {
+    html {
+        font-size: 85.33333px; } }
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 80px; } }
+
+@media screen and (max-width: 568px) {
+    html {
+        font-size: 75.73333px; } }
+
+@media screen and (max-width: 540px) {
+    html {
+        font-size: 72px; } }
+
+@media screen and (max-width: 533px) {
+    html {
+        font-size: 71.06667px; } }
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 64px; } }
+
+@media screen and (max-width: 435px) {
+    html {
+        font-size: 58px; } }
+
+@media screen and (max-width: 414px) {
+    html {
+        font-size: 55.2px; } }
+
+@media screen and (max-width: 412px) {
+    html {
+        font-size: 54.93333px; } }
+
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 53.33333px; } }
+
+@media screen and (max-width: 385px) {
+    html {
+        font-size: 51.33333px; } }
+
+@media screen and (max-width: 384px) {
+    html {
+        font-size: 51.2px; } }
+
+@media screen and (max-width: 375px) {
+    html {
+        font-size: 50px; } }
+
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 48px; } }
+
+@media screen and (max-width: 342px) {
+    html {
+        font-size: 45.6px; } }
+
+@media screen and (max-width: 320px) {
+    html {
+        font-size: 42.66667px; } }
+
+@media screen and (max-width: 300px) {
+    html {
+        font-size: 40px; } }
+
+@media screen and (max-width: 240px) {
+    html {
+        font-size: 32px; } }
+
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+a{ -webkit-tap-highlight-color:rgba(255,0,0,0);}
+body,html{
+    width:100%;
+    height:100%;
+}
+input textarea{
+    -webkit-user-modify: read-write-plaintext-only;
+    border: none;
+    outline:medium;
+    resize:none;
+    outline: none;
+}
+#app{
+    width:100%;
+    height:12.06rem;
+}
+.home_page{
+    width:100%;
+    height:100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding-top:1px;
+    margin-top:-1px;
+    position: relative;
+}
+.home_page .home_page_btn{
+    width:100%;
+    height:auto;
+    margin-top:6.55rem;
+    display: flex;
+    justify-content: center;
+}
+.home_page .home_page_btn a{
+    border-radius: 50%;
+}
+.home_page .home_page_btn .img_btn{
+    display: block;
+    width:4.2rem;
+    height:4.2rem;
+    border-radius: 50%;
+}
+.home_page .test_content{
+    width:100%;
+    height:100%;
+    padding-top:0.75rem;
+}
+.home_page .test_content .test_name{
+    display: block;
+    width:3.75rem;
+    margin:0 auto;
+}
+.home_page .test_content .test_problem{
+    width:100%;
+    height:auto;
+    padding-top:1.4rem;
+}
+.home_page .test_content .test_problem .problem_head{
+    width:5.75rem;
+    height:1.2rem;
+    display: flex;
+    margin:0 auto;
+}
+.home_page .test_content .test_problem .problem_head img{
+    display: block;
+    width:0.9rem;
+    height:0.7rem;
+    margin-right:0.2rem;
+}
+.home_page .test_content .test_problem .problem_head .problem_name{
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.36rem;
+    line-height: 0.5rem;
+    padding-top:0.1rem;
+}
+
+.home_page .test_content .test_problem .problem_content .li{
+    width:4.5rem;
+    height:1.2rem;
+    margin:0 auto;
+}
+.home_page .test_content .test_problem .problem_content .li .li_btn{
+    width:4.5rem;
+    height:0.95rem;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.1);
+    box-shadow:-1px -1px 1px #999 inset;
+    text-align: center;
+    line-height: 0.4rem;
+    position: relative;
+}
+.home_page .test_content .test_problem .problem_content .li .li_btn.active{
+    background: #C65148;
+    box-shadow:-1px 2px 1px #fff inset;
+}
+.home_page .test_content .test_problem .problem_content .li .li_btn span{
+    font-size: 0.38rem;
+    color: #fff;
+    font-weight: bold;
+}
+.home_page .test_content .test_problem .problem_content .li .li_btn.active img{
+    display: block;
+}
+.home_page .test_content .test_problem .problem_content .li .li_btn img{
+    display: none;
+    width: 0.4rem;
+    position: absolute;
+    top:0;
+    right:0.8rem;
+    bottom:0;
+    margin:auto;
+}
+.home_page .test_content .test_foot{
+    margin-top:1.16rem;
+    width:100%;
+    height:auto;
+    display: flex;
+    justify-content: center;
+}
+.home_page .test_content .test_foot .foot_btn{
+    width:2.9rem;
+    height:1.75rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home_page .test_content .test_foot .foot_btn .img_moon{
+    position: absolute;
+    left:0;
+    top:0;
+    display: block;
+    width:2.2rem;
+}
+.home_page .test_content .test_foot .foot_btn .img_next{
+    width:1.68rem;
+    margin-top:0.5rem;
+}
+.home_page .Again{
+    display: block;
+    width:2.67rem;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0.68rem;
+    margin:auto;
+}

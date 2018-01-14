@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>变态首页</title>
+    <link rel="stylesheet" href="../css/rem.css">
+</head>
+<body>
+    <div id="app">
+        <home_page v-if="home"></home_page>
+        <home_page v-if="test" back_url="background-image:url(../img/metamorphosis_back2.png)">
+            <test_page slot="z_content"></test_page>
+        </home_page>
+        <home_page v-if="result" back_url="background-image:url(../public/Result_1.png)">
+            <img class="Again" src="../img/again.png" slot="z_content"/>
+        </home_page>
+    </div>
+</body>
+</html>
+<script src="../js/vue.js"></script>
+<script>
+    Vue.component('home_page',{
+       props:{
+           back_url:{
+               type:String,
+               default:'background-image: url(../img/metamorphosis_back1.png)'
+           }
+       },
+       template:`
+        <div class="home_page" :style="back_url">
+            <slot name="z_content">
+                <div class="home_page_btn">
+                    <a href="#test"><img class="img_btn" src="../img/start.png" alt=""></a>
+                </div>
+            </slot>
+        </div>
+       `
+    });
+    Vue.component('test_page',{
+        template:`
+        <div class="test_content">
+                <img class="test_name" src="../public/1.png" alt="">
+                <div class="test_problem">
+                    <div class="problem_head">
+                        <img src="../img/horn.png" alt="">
+                        <p class="problem_name">1、 听到旁人听不到的声音？</p>
+                    </div>
+                    <ul class="problem_content" v-for="view of num">
+                        <li class="li">
+                            <div @click="handleoption(view.num,$event)" class="li_btn" :class="{active:isClass}" :num="view.num">
+                                <span>{{view.name}}</span>
+                                <img src="../img/duigou.png" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="test_foot">
+                    <div class="foot_btn">
+                        <img class="img_moon" src="../img/Moon.png" alt="">
+                        <img class="img_next" src="../img/next.png" alt="">
+                    </div>
+                </div>
+            </div>
+       `,
+        data(){
+            return{
+                num:[
+                    {
+                        num:0,
+                        name:'a、没有'
+                    },
+                    {
+                        num:1,
+                        name:'b、偶尔'
+                    },
+                    {
+                        num:2,
+                        name:'c、经常'
+                    },
+                ],
+                isClass:false,
+            }
+        },
+        methods:{
+            handleoption(v,event){
+                console.log(v)
+            }
+        }
+    });
+
+
+    var el=new Vue({
+        el:'#app',
+        data:{
+            visbi:'home',
+            home:true,
+            test:false,
+            result:false
+        },
+        computed:{
+            hashclick(){
+                var vis={
+                    home(){
+                        this.home=true
+                        this.test=false
+                        this.result=false
+                    },
+                    test(){
+                        this.home=false
+                        this.test=true
+                        this.result=false
+                    },
+                    result(){
+                        this.home=false
+                        this.test=false
+                        this.result=true
+                    },
+                };
+                console.log(this.visbi)
+                return  vis[this.visbi]();
+            }
+        }
+    });
+    function hashChange() {
+        var hash=window.location.hash.slice(1) ;
+        el.visbi=hash;
+    }
+    hashChange();
+    window.addEventListener('hashchange',hashChange);
+</script>

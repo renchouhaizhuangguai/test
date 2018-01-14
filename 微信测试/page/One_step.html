@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>题目</title>
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/rem.css ">
+    <link rel="stylesheet" href="../css/index.css ">
+</head>
+<body>
+<div id="activity" style="background-image: url(../image/activity_bkg_two.png);">
+    <div class="subject">
+        <div class="subject_name">
+            <img src="../number/s10.png" alt="">
+        </div>
+        <div id="option">
+            <div class="input">
+                <img class="icon" src="../image/avtivity_region.png" alt="">
+                <span class="inputs">请选择地区</span>
+                <!--<input type="text" placeholder="">-->
+                <ul class="select">
+                    <li Percentage="1">一线大城市</li>
+                    <li Percentage="0.7">各省会城市</li>
+                    <li Percentage="0.5">其他城市</li>
+                </ul>
+                <!--<span class="text"></span>-->
+            </div>
+            <div class="input">
+                <img class="icon" src="../image/avtivity_position.png" alt="">
+                <span class="inputs">请选择职位</span>
+                <!--<input type="text" placeholder="请选择职位">-->
+                <ul class="select">
+                    <li>专员</li>
+                    <li>主管</li>
+                    <li>经理</li>
+                    <li>总监</li>
+                    <li>总经理</li>
+                </ul>
+                <!--<span class="text">请选择职位</span>-->
+            </div>
+            <p class="text">距离终点，就差一步了！！！</p>
+            <div class="progress_bar One_step">
+                <div class="progress_box" style="width:100%;"></div>
+            </div>
+        </div>
+    </div>
+        <a class="jump_one subject_btn" href="javascript:void(0);">
+            <img src="../image/avtivity_btn3.png" alt="">
+        </a>
+</div>
+</body>
+</html>
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/toast.js"></script>
+<script src="../js/json.js"></script>
+<script>
+    $(function () {
+        var num=window.location.search.substr(5);
+        var input=$('#option .inputs');
+        var select=$('.select');
+        var li=$('.select li');
+        var jump_one=$('.jump_one');
+        var val1=input.eq(0);
+        var val2=input.eq(1);
+        input.on('click',function () {
+            select.removeClass('active');
+            $(this).parent().find('.select').addClass('active');
+        });
+        li.on('click',function () {
+            $(this).parent().prev().text($(this).text());
+            $(this).parent().prev().attr('Percentage',$(this).attr('Percentage'));
+            $(this).parent().removeClass('active');
+        });
+        $('#activity').on('click',function (e) {
+            if(e.target.nodeName!='SPAN'){
+                select.removeClass('active');
+            }
+        });
+        jump_one.on('click',function () {
+            Fractional_correspondence=Fractional_correspondence.filter(function (v) {
+                var cc=v.num.filter(function (v,i) {
+                    return v==num;
+                });
+                return cc==num;
+            });
+            if(val1.text()!='请选择地区'&&val2.text()!='请选择职位'){
+                var money=Math.floor(val1.attr('Percentage')*Fractional_correspondence[0].money);
+                if(val2.text()=='专员'&&money>190000){
+                    money=190000;
+                }else if(val2.text()=='主管'&&money>350000){
+                    money=350000;
+                }else if(val2.text()=='经理'&&money<80000){
+                    money=80000;
+                }else if(val2.text()=='总监'&&money<150000){
+                    money=150000;
+                }else if(val2.text()=='总经理'&&money<280000){
+                    money=280000;
+                }
+                $(this).attr('href','result.html?num='+ num +'money='+money);
+            }else{
+                showMessage('请先完善信息！',1500,true);
+            }
+        })
+    })
+</script>
